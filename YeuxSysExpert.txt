@@ -1,0 +1,374 @@
+;Système expert pour les maladies des yeux
+;Auteurs:
+;AMULI MWENYIMALI Jean
+;LUKIFIMPA LUMANISA Exauce
+;MUBWANA SATALA Michee
+;SADIBOKO UWENZI Josue
+;WATEGA ALIMASI Sebastien
+
+;Nettoyage
+(clear)
+
+;Initialisation de la base de faits
+(reset)
+
+;Alimentation de la base de connaissance
+(defrule MaladieVision
+        (nom ?nomp)
+        (Symptome ?vision troublee|floue|deformee|double)
+=>
+        (printout t ?nomp" est au début de la maladie des yeux."crlf crlf)
+        (printout t"Vous devez manger beaucoup de fruits et de legumes"crlf)
+)
+
+(defrule Choroideremie
+        (nom ?nomp)
+        (symptome vision nocturne)
+        (symptome vision a des faibles luminosite)
+        (symptome champs visuel se retricit)
+        (symptome vision tunnelle)
+        (symptome trouble de vision des couleurs)
+        (symptome acuite visuelle reduite)
+        (symptome augmentation du volume de globe oculaire)
+=>
+        (printout t ?nomp" souffre de la choroïdérémie."crlf crlf)
+        (printout t"Actuellement il n'exuste aucun traitement pour guérir cette maladie."crlf)
+        (printout t" Mais, " ?nomp"peut utiliser une canne blache ou un chien de guide;"crlf)
+        (printout t"Quand la baisse de l'acuité visuelle est trop géante une rééducation AVJ(Autonomie dans la Vie Journalière)"crlf)
+        (printout t" peut être mise en place."crlf)
+        (printout t"Les aides basse vision: "crlf)
+        (printout t"des lunettes grossissantes, des loupes, livres ou revues à gros caractères,"crlf)
+        (printout t"cadrans de téléphone ou de calculatrice à gros numéros, des montres parlantes"crlf)
+        (printout t"Mesures qui peuvent ralentir la progression de la maladie: "crlf)
+        (printout t"port des verres protecteurs et filtrants, vitamine A, une alimentation riche en antioxydants (legumes verts) et en oméga 3(poissons gras)"crlf)
+)
+(defrule KeratitisCiccas
+        (nom ?nomp)
+        (symptome secheresse)
+        (symptome inconfort oculaire)
+        (symptome rougeur oculaire)
+        (symptome sensation de corps etranger)
+        (symptome sensibilite a la lumiere)
+=>
+        (printout t ?nomp" souffre de la keratititis ciccas."crlf crlf)
+        (printout t"Traitement: mettre de gouttes optalmiques lubrifiantes dans les yeux."crlf)
+)
+
+(defrule RetinopathieDiabetique
+        (nom ?nomp)
+        (symptome corps flottant)
+        (symptome vision floue)
+        (symptome difficulte pour percevoir les couleurs)
+=>
+        (printout t ?nomp" souffre de la rétinopathie diabétique."crlf)
+        (printout t"Les cas bénins peuvent être traités par un contrôle strict du diabète. Tandis que."crlf)
+        (printout t"les cas avancés peuvent nécessiter une intervention chirurgicale ou un traitement au laser."crlf)
+)
+
+(defrule Presbytie
+        (nom ?nomp)
+        (symptome lecture en distance)
+        (symptome fatigue occulaire)
+        (symptome maux de tete frequent)
+        (symptome vision floue)
+=>
+        (printout t ?nomp" souffre de la présbytie."crlf crlf)
+        (printout t"Traitements: port de lunettes correctives ou de verres progressifs ou"crlf)
+        (printout t"de lentilles de contact progressives. La chirurgie réfractive"crlf)
+)
+
+(defrule Glaucome
+        (nom ?nomp)
+        (symptome trouble visuel soudain)
+        (symptome nausee)
+        (symptome douleur oculaire)
+        (symptome vision floue)
+        (symptome vision deformee)
+        (symptome rougeur oculaire)
+        (symptome perte de la vision)
+=>
+        (printout t ?nomp" souffre de la glaucome."crlf crlf)
+        (printout t"Le traitment à base de collyres, vise à maintenir la pression intraoculaire"crlf)
+        (printout t"sous un certaine seuil afi d'arrêter l'évolution de la maladie."crlf)
+        (printout t"Si cela ne marche pas; le traitement par laser ou une chirurgie est envisagé."crlf)
+)
+        
+(defrule Cataracte
+        (nom ?nomp)
+        (symptome vision deformee)
+        (symptome vision troublee)
+        (symptome vision de Halos)
+        (symptome lumiere forte pour lire)
+        (symptome affadisment)
+        (symptome sensibilite a la lumiere accrue)
+=>
+        (printout t ?nomp" souffre de la cataracte."crlf crlf)
+        (printout t"Le traitement par référence de la caracacte est la chirurgie."crlf)
+)
+
+
+(defrule DMLA
+        (nom ?nomp)
+        (symptome perte de la vision)
+        (symptome vision deformee)
+        (symptome vision floue)
+        (symptome incapacite de voir lorsque la lumiere est faible)
+        (symptome vaisseaux sanguins anormaux)
+        (symptome vision des taches)
+        (symptome anomalie de la vision de lignes droites)
+
+=>
+        (printout t ?nomp" souffre de la Dégénérence maculaire liée à l'âge."crlf crlf)
+        (printout t"Traitements: "crlf)
+        (printout t"1. Les injections intravitréennes d'un médicament antifacteur de croissance ou anti-VEGF:"crlf)
+        (printout t"   Ranibizumab (LUCENTIS) ou l'aflibercept (EYLEA) ou Bévacizumab (AVASTIN)."crlf)
+        (printout t"2. La photothérapie dynamique."crlf)
+        (printout t"3. Le laser chirurgical."crlf)
+)
+
+(defrule Cogan
+        (nom ?nomp)
+        (symptome douleur oculaire)
+        (symptome baisse de la vision)
+        (symptome sencibilite accrue a la lumiere)
+        (symptome rougeur oculaire)
+=>
+        (printout t ?nomp" souffre de Cogan."crlf crlf)
+        (printout t"Le traitement consiste principalement en des corticostéroïdes."crlf)
+)
+
+(defrule Achromatopsie
+        (nom ?nomp)
+        (symptome cecite des couleurs)
+        (symptome oscillation involontaire du globe oculaire)
+        (symptome oscillation saccadee du globe oculaire)
+        (symptome piletscotome central)
+        (symptome photophobie importante)
+        (symptome taches au niveau de champs oculaire)
+        (symptome acuite visuelle reduite)
+=>
+        (printout t ?nomp" souffre de l'Acromatopsie."crlf crlf)
+        (printout t"traitement: "crlf)
+        (printout t"Port de verre ou de lentilles de contact teintés en rouge ou marron"crlf)
+        (printout t"Utiliser les loupes à fort grossissement pour faciliter la lecture."crlf)
+)
+
+(defrule Retimoblastome
+       (nom ?nomp)
+       (symptome pupille blanche)
+       (symptome inflammation)
+       (symptome rougeur oculaire)
+        (symptome douleur oculaire)
+       (symptome vision legerement floue)
+       (symptome augmentation du volume de globe oculaire)
+       (symptome exomphtalmie)
+       (symptome heterochromie des iris)
+=>
+        (printout t ?nomp" souffre de la retimoblastomie."crlf crlf)
+        (printout t"Traitements: la cryochirurgie, la thermothérapie ou la chirurgie au laser,"crlf)
+        (printout t "la chimiothérapie ou la curiothérapie par plaque."crlf)
+)
+
+(defrule Hypermetropie
+        (nom ?nomp)
+        (symptome fatigue occulaire)
+        (symptome maux de tete)
+        (symptome rougeur oculaire)
+        (symptome vision floue)
+=>
+        (printout t ?nomp" souffre de l'hypermétropie."crlf crlf)
+        (printout t"Traitements: port de lunettes correctrices ou de lentilles de contact correctrices ou la chirurgie."crlf)
+)
+
+
+(defrule Astigmatisme
+        (nom ?nomp)
+        (symptome fatigue occulaire)
+        (symptome maux de tete)
+        (symptome vision deformee)
+        (symptome vision floue)
+        (symptome plissement des yeux)
+=>
+        (printout t ?nomp" souffre de l'Astigmatisme."crlf crlf)
+        (printout t"Traitements: port de lunettes correctrices avec verres toriques ou de lentilles de contact ou "crlf)
+        (printout t"une opération au laser excimer."crlf)
+)
+
+(defrule Myopie
+        (nom ?nomp)
+        (symptome vision eloignee floue)
+        (symptome lecture pres du visage)
+        (symptome plissement des yeux)
+        (symptome maux de tete)
+        (symptome clignement excessif)
+        (symptome fatigue constant des yeux)
+        (symptome inconfort oculaire)
+=>
+        (printout t ?nomp" souffre de la Myopie."crlf crlf)
+        (printout t"Traitements: port de lunettes ou de lentilles de contact et "crlf)
+        (printout t"la chirurgie réfractive (LASIK)."crlf)
+)
+
+(defrule Nystagmus
+        (nom ?nomp)
+        (symptome perte equilibre)
+        (symptome oscillation involontaire)
+        (symptome oscillation rapide)
+        (symptome trouble sensitif)
+        (symptome vision floue)
+=>
+        (printout t ?nomp" souffre de nystagmus."crlf crlf)
+        (printout t"Traitements: port de lunettes ou lentilles de contact;"crlf)
+        (printout t"Utiliser les prismes pour améliorer la coopération des yeux;"crlf)
+        (printout t"Injection de la toxine botulique dans les muscles horizontales de deux yeux;"crlf)
+        (printout t"La chirurgie."crlf)
+)
+
+(defrule strabisme
+        (nom ?nomp)
+        (symptome douleur occulaire)
+        (symptome fatigue occulaire)
+        (symptome maux de tete)
+        (symptome picotement)
+        (symptome rougeur occulaire)
+        (symptome ?difficulte lire|ecrire)
+        (symptome vision double)
+=>
+        (printout t ?nomp" souffre de strabisme."crlf crlf)
+        (printout t"L'intervention chirurgicale ou des lunettes avec correction optique."crlf)
+        (printout t"Une occlusion sur peau peut être recommandée pour aider à renforcer un oeil mal aligné."crlf)
+)
+
+(defrule Amblyopie
+        (nom ?nomp)
+        (symptome ?vision double|floue)
+        (symptome desalignements des yeux)
+=>
+        (printout t ?nomp" souffre de l'amblyopie."crlf crlf)
+        (printout t"Traitements: la correction optique totale (par le port permanent des lunettes)"crlf)
+        (printout t"L'occlusion alternée (par cache oeil)."crlf)
+)
+
+(defrule Albinisme
+        (nom ?nomp)
+        (symptome yeux bleux)
+        (symptome yeux gris pales)
+        (symptome rougeur occulaire)
+        (symptome sensibilite a la lumiere)
+        (symptome yeux bleus translucides)
+=>
+        (printout t ?nomp" souffre de l'albinisme oculaire."crlf crlf)
+        (printout t"Traitements: la protection solaire par le port de lunettes à verres polarisants contre le soleil"crlf)
+        (printout t"Port de loupes ou de jumelle monoculaire à verres teintes."crlf)
+)
+
+;Pour afficher la base de connaissance
+(rules)
+
+;Affichage de l'agenda
+(agenda)
+
+;Executer
+(run)
+
+;Le test
+(assert (nom LUKIFIMPA)
+(symptome difficulte pour percevoir les couleurs)
+(symptome corps flottant)
+(symptome vision floue)
+)
+
+;Affichage des faits
+(facts)
+
+;Affichage de l'agenda
+(agenda)
+
+;Executer
+(run)
+
+;initialisation de la base de faits
+(reset)
+
+;Le test
+(assert (nom MAMU)
+(symptome perte de la vision)
+(symptome incapacite de voir lorsque la lumiere est faible)
+(symptome vision floue)
+(symptome vision deformee)
+(symptome anomalie de la vision de lignes droites)
+(symptome vision des taches)
+(symptome vaisseaux sanguins anormaux)
+)
+
+;Affichage des faits
+(facts)
+
+;Affichage de l'agenda
+(agenda)
+
+;Executer
+(run)
+
+
+;Initialisation de la base de faits
+(reset)
+
+;Le test
+(assert (nom KOKUMBO)
+(symptome oscillation involontaire)
+(symptome trouble sensitif)
+(symptome vision floue)
+(symptome perte equilibre)
+(symptome oscillation rapide)
+)
+
+;Affichage des faits
+(facts)
+
+;Affichage de l'agenda
+(agenda)
+
+;Executer
+(run)
+
+;;Initialisation de la base de faits
+(reset)
+
+;Le test
+(assert (nom NYASA)
+(symptome fatigue occulaire)
+(symptome vision deformee)
+(symptome plissement des yeux)
+(symptome maux de tete)
+(symptome rougeur oculaire)
+(symptome vision floue)
+)
+
+;Affichage des faits
+(facts)
+
+;affichage de l'agenda
+(agenda)
+
+;Executer
+(run)
+
+;Initialisation de la base de faits
+(reset)
+
+(assert (nom MUBWANA)
+(Symptome vision double)
+)
+
+;Affichage des faits
+(facts)
+
+;Affichage de l'agenda
+(agenda)
+
+;Executer
+(run)
+
+;Initialisation de la base de faits
+(reset)
